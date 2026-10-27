@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="alcohol_age_calculator.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="24,32"
+            Spacing="16"
+            MaximumWidthRequest="480"
+            HorizontalOptions="Center">
+
+            <Label
+                Text="Alcohol Age Calculator"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Check the alcohol purchase age for your selected country."
+                Style="{StaticResource SupportingText}" />
+
+            <Label Text="Date of birth" />
+            <Border
+                Stroke="{AppThemeBinding Light=#767676, Dark=#AAAAAA}"
+                StrokeThickness="1"
+                Padding="12,0"
+                HeightRequest="52"
+                StrokeShape="RoundRectangle 8">
+
+                <DatePicker
+                    x:Name="BirthdayPicker"
+                    Format="MMMM d, yyyy"
+                    HorizontalOptions="Fill"
+                    MinimumHeightRequest="0"
+                    VerticalOptions="Center" />
+
+            </Border>
+
+            <Label Text="Country" />
+
+            <Picker
+                x:Name="CountryPicker"
+                Title="Select a country"
+                HeightRequest="52"
+                HorizontalOptions="Fill">
+
+                <Picker.Items>
+                    <x:String>United States</x:String>
+                    <x:String>United Kingdom</x:String>
+                    <x:String>New Zealand</x:String>
+                    <x:String>Singapore</x:String>
+                </Picker.Items>
+
+            </Picker>
+            
+            <Button
+                Text="Calculate"
+                SemanticProperties.Hint="Calculates your age and time until your 21st birthday"
+                Clicked="OnCalculateClicked"
+                HorizontalOptions="Fill" />
+
+            <Label
+                x:Name="ResultLabel"
+                Text="" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
